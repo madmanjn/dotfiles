@@ -2,6 +2,7 @@ return {
   {
     'nvim-tree/nvim-tree.lua',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
+
     config = function()
       vim.g.loaded_netrw = 1
       vim.g.loaded_netrwPlugin = 1
@@ -19,36 +20,44 @@ return {
           }
         end
 
-        -- Default mappings
         api.config.mappings.default_on_attach(bufnr)
 
-        -- Custom mappings khi đang ở trong cửa sổ nvim-tree
         vim.keymap.set('n', '<c-e>', api.tree.toggle, opts 'Toggle')
         vim.keymap.set('n', '?', api.tree.toggle_help, opts 'Help')
       end
 
-      -- 1. Gọi setup TRƯỚC
       require('nvim-tree').setup {
+        -- Không hỏi xác nhận khi xóa
+        ui = {
+          confirm = {
+            remove = false,
+            trash = false,
+          },
+        },
+
         view = {
           width = 35,
         },
+
         on_attach = my_on_attach,
+
         filters = {
           custom = {
             '^.git$',
-            '\\.meta$',          -- Ẩn .meta để đỡ rối mắt khi duyệt code
-            '^Library$',         -- Cache Unity (cực nặng, không nên duyệt)
-            '^Temp$',            -- File tạm compile
-            '^Obj$',             -- Build intermediates
-            '^Build$',           -- Output build
+            '\\.meta$',
+            '^Library$',
+            '^Temp$',
+            '^Obj$',
+            '^Build$',
             '^Builds$',
-            '^Logs$',            -- Unity editor logs
-            '^UserSettings$',    -- Layout cá nhân
-            '\\.csproj$',        -- VS Solution files sinh tự động
+            '^Logs$',
+            '^UserSettings$',
+            '\\.csproj$',
             '\\.sln$',
           },
           exclude = {},
         },
+
         actions = {
           open_file = {
             quit_on_open = true,
@@ -57,14 +66,17 @@ return {
             },
           },
         },
+
         update_focused_file = {
           enable = true,
           update_root = false,
         },
+
         git = {
           enable = true,
           ignore = true,
         },
+
         diagnostics = {
           enable = true,
           show_on_dirs = true,
@@ -77,10 +89,13 @@ return {
         },
       }
 
-      -- 2. Gán phím tắt toàn cục SAU KHI setup đã chạy
       vim.keymap.set('n', '<c-e>', function()
         api.tree.toggle()
-      end, { desc = 'Toggle NvimTree', noremap = true, silent = true })
+      end, {
+        desc = 'Toggle NvimTree',
+        noremap = true,
+        silent = true,
+      })
     end,
   },
 }
