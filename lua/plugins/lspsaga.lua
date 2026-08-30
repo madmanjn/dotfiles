@@ -29,7 +29,7 @@ return {
         vim.keymap.set('n', '<space>r', vim.lsp.buf.rename, opts)
         vim.keymap.set(
           { 'n', 'v' },
-          '<space>ca',
+          '`',
           '<cmd>Lspsaga code_action<cr>',
           opts
         )
