@@ -9,11 +9,49 @@ return {
     local builtin = require 'telescope.builtin'
     local actions = require 'telescope.actions'
 
-    vim.keymap.set('n', '<leader>ff', builtin.find_files)
-    vim.keymap.set('n', '<leader>fg', builtin.live_grep)
-    vim.keymap.set('n', '<leader>fb', builtin.buffers)
-    vim.keymap.set('n', '<leader>fs', builtin.lsp_document_symbols)
-    vim.keymap.set('n', '<leader>fw', builtin.lsp_dynamic_workspace_symbols)
+    -- Find C# files only
+    vim.keymap.set('n', '<leader>ff', function()
+      builtin.find_files {
+        find_command = {
+          'rg',
+          '--files',
+          '--hidden',
+
+          -- Only C# files
+          '--glob', '*.cs',
+
+          -- Ignore Unity generated folders
+          '--glob', '!Library/**',
+          '--glob', '!Temp/**',
+          '--glob', '!Logs/**',
+          '--glob', '!obj/**',
+          '--glob', '!Build/**',
+          '--glob', '!Builds/**',
+          '--glob', '!UserSettings/**',
+          '--glob', '!MemoryCaptures/**',
+          '--glob', '!.git/**',
+        },
+      }
+    end, { desc = 'Find C# Files' })
+
+    -- Grep C# files only
+    vim.keymap.set('n', '<leader>fg', function()
+      builtin.live_grep {
+        glob_pattern = '*.cs',
+      }
+    end, { desc = 'Grep in C# Files' })
+
+    vim.keymap.set('n', '<leader>fb', builtin.buffers, {
+      desc = 'Find Buffers',
+    })
+
+    vim.keymap.set('n', '<leader>fs', builtin.lsp_document_symbols, {
+      desc = 'Find Document Symbols',
+    })
+
+    vim.keymap.set('n', '<leader>fw', builtin.lsp_dynamic_workspace_symbols, {
+      desc = 'Find Workspace Symbols',
+    })
 
     require('telescope').setup {
       defaults = {
@@ -24,15 +62,23 @@ return {
         },
 
         file_ignore_patterns = {
-          '^Library/',
-          '^Temp/',
-          '^Logs/',
-          '^obj/',
-          '^Build/',
-          '^Builds/',
-          '^UserSettings/',
-          '^MemoryCaptures/',
-          '^%.git/',
+          'Library/',
+          'Temp/',
+          'Logs/',
+          'obj/',
+          'Build/',
+          'Builds/',
+          'UserSettings/',
+          'MemoryCaptures/',
+          '%.git/',
+          '%.meta$',
+          '%.prefab$',
+          '%.png$',
+          '%.asset$',
+          '%.ogg$',
+          '%.ttf$',
+          '%.csproj$',
+          '%.mat$',
         },
 
         dynamic_preview_title = true,
