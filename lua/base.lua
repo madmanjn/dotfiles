@@ -24,6 +24,8 @@ opt.swapfile = false
 opt.autoread = true
 vim.bo.autoread = true
 
+vim.opt.winbar = ''
+
 -- opt.cursorline = true
 opt.termguicolors = true
 
