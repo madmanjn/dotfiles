@@ -13,3 +13,10 @@ keymap.set('n', 'j', [[v:count?'j':'gj']], { noremap = true, expr = true })
 keymap.set('n', 'k', [[v:count?'k':'gk']], { noremap = true, expr = true })
 
 keymap.set('n', '<leader>nh', ':nohl<CR>', { desc = 'Clear search highlights' })
+
+-- Ctrl + Backspace: delete previous word
+keymap.set('i', '<C-BS>', '<C-W>', { desc = 'Delete previous word' })
+
+
+keymap.set('n', '<S-H>', '^', { desc = 'Go to first character of line' })
+keymap.set('n', '<S-L>', 'g_', { desc = 'Go to last character of line' })

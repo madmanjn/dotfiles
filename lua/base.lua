@@ -8,7 +8,7 @@ opt.relativenumber = true
 opt.cursorline = true
 opt.wrap = false
 opt.showmatch = true
-opt.cmdheight = 1
+opt.cmdheight = 0
 opt.pumheight = 10
 opt.synmaxcol = 300
 opt.fillchars = { eob = " " }
