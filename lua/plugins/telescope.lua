@@ -55,6 +55,9 @@ return {
 
     require('telescope').setup {
       defaults = {
+        -- Preview ở phía trên
+        layout_strategy = 'vertical',
+
         mappings = {
           i = {
             ['<Esc>'] = actions.close,
@@ -95,9 +98,13 @@ return {
       },
 
       layout_config = {
-        horizontal = {
-          preview_cutoff = 100,
-          preview_width = 0.5,
+        vertical = {
+          preview_height = 0.5,
+          prompt_position = 'bottom',
+
+          -- Chiều rộng / chiều cao Telescope
+          width = 0.9,
+          height = 0.9,
         },
       },
     }
