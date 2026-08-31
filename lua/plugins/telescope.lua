@@ -52,6 +52,16 @@ return {
     vim.keymap.set('n', '<leader>fw', builtin.lsp_dynamic_workspace_symbols, {
       desc = 'Find Workspace Symbols',
     })
+	vim.keymap.set('n', '<leader>fd', function()
+		builtin.diagnostics {
+		scope = 'workspace',
+		severity = {
+			min = vim.diagnostic.severity.WARN,
+		},
+	}
+	end, {
+	  desc = 'Show Workspace Errors & Warnings',
+	})
 
     require('telescope').setup {
       defaults = {

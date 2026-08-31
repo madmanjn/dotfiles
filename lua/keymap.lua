@@ -39,3 +39,7 @@ keymap.set("n", "<A-l>", "<C-w>l")
 -- Resize window
 keymap.set("n", "<A-Left>", "<C-w><")
 keymap.set("n", "<A-Right>", "<C-w>>")
+
+vim.keymap.set('n', '<leader>lr', '<cmd>lsp restart<cr>', {
+  desc = 'LSP Restart',
+})

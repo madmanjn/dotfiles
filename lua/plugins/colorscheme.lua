@@ -105,11 +105,12 @@ return {
           fg = '#569CD6',
         },
         ['@lsp.type.parameter.cs'] = {
-          fg = '#9CDCFE',
+          fg = '#BADEB0',
           italic = true,
         },
         ['@lsp.type.namespace.cs'] = {
-          italic = false,
+			fg = '#D2B48C',
+			italic = false,
         },
       }
     end,
