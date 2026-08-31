@@ -20,3 +20,6 @@ keymap.set('i', '<C-BS>', '<C-W>', { desc = 'Delete previous word' })
 
 keymap.set('n', '<S-H>', '^', { desc = 'Go to first character of line' })
 keymap.set('n', '<S-L>', 'g_', { desc = 'Go to last character of line' })
+
+keymap.set('n', '<A-q>', '<C-o>', { silent = true })
+keymap.set('n', '<A-e>', '<C-i>', { silent = true })
