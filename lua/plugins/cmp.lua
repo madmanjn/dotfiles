@@ -50,10 +50,12 @@ return {
           select = true,
         },
 
-        -- Next suggestion / next snippet jump
+        -- Accept current suggestion / next snippet jump
         ['<Tab>'] = cmp.mapping(function(fallback)
           if cmp.visible() then
-            cmp.select_next_item()
+            cmp.confirm {
+              select = false,
+            }
           elseif luasnip.expand_or_jumpable() then
             luasnip.expand_or_jump()
           else
