@@ -21,8 +21,11 @@ return {
     local lspkind = require 'lspkind'
 
     cmp.setup {
+      -- Automatically select the first suggestion
+      preselect = cmp.PreselectMode.Item,
+
       completion = {
-        completeopt = 'menu,menuone,preview,noselect',
+        completeopt = 'menu,menuone,preview',
       },
 
       formatting = {
@@ -39,12 +42,15 @@ return {
       },
 
       mapping = cmp.mapping.preset.insert {
+        -- Manually open completion
         ['<C-Space>'] = cmp.mapping.complete(),
 
+        -- Confirm selected suggestion
         ['<CR>'] = cmp.mapping.confirm {
           select = true,
         },
 
+        -- Next suggestion / next snippet jump
         ['<Tab>'] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_next_item()
@@ -55,6 +61,7 @@ return {
           end
         end, { 'i', 's' }),
 
+        -- Previous suggestion / previous snippet jump
         ['<S-Tab>'] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_prev_item()
@@ -75,6 +82,7 @@ return {
       }),
     }
 
+    -- Search completion: / and ?
     cmp.setup.cmdline({ '/', '?' }, {
       mapping = cmp.mapping.preset.cmdline(),
 
@@ -83,6 +91,7 @@ return {
       },
     })
 
+    -- Command completion: :
     cmp.setup.cmdline(':', {
       mapping = cmp.mapping.preset.cmdline(),
 
@@ -93,6 +102,7 @@ return {
       }),
     })
 
+    -- Load VSCode-style LuaSnip snippets
     require('luasnip.loaders.from_vscode').load {
       paths = {
         vim.fn.stdpath 'config' .. '/snippets',
