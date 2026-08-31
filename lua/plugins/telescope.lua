@@ -9,7 +9,10 @@ return {
     local builtin = require 'telescope.builtin'
     local actions = require 'telescope.actions'
 
-    -- Find C# files only
+    -- ========================================
+    -- Find C# files
+    -- ========================================
+
     vim.keymap.set('n', '<leader>ff', function()
       builtin.find_files {
         find_command = {
@@ -34,12 +37,19 @@ return {
       }
     end, { desc = 'Find C# Files' })
 
-    -- Grep C# files only
+    -- ========================================
+    -- Grep C# files
+    -- ========================================
+
     vim.keymap.set('n', '<leader>fg', function()
       builtin.live_grep {
         glob_pattern = '*.cs',
       }
     end, { desc = 'Grep in C# Files' })
+
+    -- ========================================
+    -- Telescope Pickers
+    -- ========================================
 
     vim.keymap.set('n', '<leader>fb', builtin.buffers, {
       desc = 'Find Buffers',
@@ -52,16 +62,21 @@ return {
     vim.keymap.set('n', '<leader>fw', builtin.lsp_dynamic_workspace_symbols, {
       desc = 'Find Workspace Symbols',
     })
-	vim.keymap.set('n', '<leader>fd', function()
-		builtin.diagnostics {
-		scope = 'workspace',
-		severity = {
-			min = vim.diagnostic.severity.WARN,
-		},
-	}
-	end, {
-	  desc = 'Show Workspace Errors & Warnings',
-	})
+
+    vim.keymap.set('n', '<leader>fd', function()
+      builtin.diagnostics {
+        scope = 'workspace',
+        severity = {
+          min = vim.diagnostic.severity.WARN,
+        },
+      }
+    end, {
+      desc = 'Show Workspace Errors & Warnings',
+    })
+
+    -- ========================================
+    -- Telescope Setup
+    -- ========================================
 
     require('telescope').setup {
       defaults = {
@@ -69,11 +84,25 @@ return {
         layout_strategy = 'vertical',
 
         mappings = {
+          -- Insert mode
           i = {
+            -- Navigation
+            ['<C-j>'] = actions.move_selection_next,
+            ['<C-k>'] = actions.move_selection_previous,
+
+            -- Close
             ['<Esc>'] = actions.close,
+          },
+
+          -- Normal mode
+          n = {
+            -- Navigation
+            ['<C-j>'] = actions.move_selection_next,
+            ['<C-k>'] = actions.move_selection_previous,
           },
         },
 
+        -- Ignore unnecessary Unity files
         file_ignore_patterns = {
           'Library/',
           'Temp/',

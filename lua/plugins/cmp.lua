@@ -42,6 +42,17 @@ return {
       },
 
       mapping = cmp.mapping.preset.insert {
+        -- ========================================
+        -- Navigation
+        -- ========================================
+
+        ['<C-j>'] = cmp.mapping.select_next_item(),
+        ['<C-k>'] = cmp.mapping.select_prev_item(),
+
+        -- ========================================
+        -- Completion
+        -- ========================================
+
         -- Manually open completion
         ['<C-Space>'] = cmp.mapping.complete(),
 
@@ -84,7 +95,10 @@ return {
       }),
     }
 
+    -- ========================================
     -- Search completion: / and ?
+    -- ========================================
+
     cmp.setup.cmdline({ '/', '?' }, {
       mapping = cmp.mapping.preset.cmdline(),
 
@@ -93,7 +107,10 @@ return {
       },
     })
 
+    -- ========================================
     -- Command completion: :
+    -- ========================================
+
     cmp.setup.cmdline(':', {
       mapping = cmp.mapping.preset.cmdline(),
 
@@ -103,6 +120,10 @@ return {
         { name = 'cmdline' },
       }),
     })
+
+    -- ========================================
+    -- LuaSnip
+    -- ========================================
 
     -- Load VSCode-style LuaSnip snippets
     require('luasnip.loaders.from_vscode').load {
