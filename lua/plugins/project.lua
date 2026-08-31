@@ -3,7 +3,17 @@ return {
 
   opts = {
     projects = {
-      'D:/_Unity/Projects/*',
+      'D:/_Unity/Projects/*/*',
+    },
+
+    picker = {
+      type = 'telescope',
+
+      preview = {
+        enabled = true,
+        git_status = true,
+        show_hidden = true,
+      },
     },
   },
 
@@ -12,15 +22,16 @@ return {
   end,
 
   dependencies = {
-    { 'nvim-lua/plenary.nvim' },
-    { 'Shatur/neovim-session-manager' },
+    'nvim-lua/plenary.nvim',
+    'nvim-telescope/telescope.nvim',
+    'Shatur/neovim-session-manager',
   },
 
   keys = {
     {
       '<leader>fp',
-      '<cmd>Telescope neovim-project discover<cr>',
-      desc = 'Find Projects',
+      '<cmd>NeovimProjectDiscover<cr>',
+      desc = 'Project History',
     },
   },
 
