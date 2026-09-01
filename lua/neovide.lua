@@ -1,5 +1,7 @@
 if vim.g.neovide then
   vim.o.guifont = 'JetBrainsMono Nerd Font:h14'
+	vim.g.neovide_position_animation_length = 0
+	vim.g.neovide_cursor_animation_length = 0
   vim.g.neovide_scale_factor = 1
   vim.g.neovide_fullscreen = true
 
