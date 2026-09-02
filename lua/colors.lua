@@ -28,6 +28,7 @@ local colors = {
   -- ========================================
 
   keyword = '#569CD6',
+  control_keyword = '#D8A0DF',
   class = '#4EC9B0',
   struct = '#75D175',
 
@@ -52,6 +53,7 @@ local colors = {
   warning = '#DCDCAA',
   info = '#4FC1FF',
   hint = '#75D175',
+  unnecessary = '#6B7280',
 
   -- ========================================
   -- Git
