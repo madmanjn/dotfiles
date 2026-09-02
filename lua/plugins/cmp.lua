@@ -111,6 +111,26 @@ return {
     })
 
     -- ========================================
+    -- Clear completion when leaving Insert mode
+    -- ========================================
+
+    vim.api.nvim_create_autocmd('InsertLeave', {
+      callback = function()
+        cmp.abort()
+      end,
+    })
+    
+    vim.keymap.set('i', '<C-c>', function()
+  cmp.abort()
+  vim.cmd('stopinsert')
+  vim.schedule(function()
+    vim.cmd('redraw!')
+  end)
+end, {
+  desc = 'Exit Insert Mode and clear completion',
+})
+
+    -- ========================================
     -- LuaSnip
     -- ========================================
 
