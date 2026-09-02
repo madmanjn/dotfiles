@@ -1,0 +1,241 @@
+{
+  "Awake": {
+    "prefix": "awake",
+    "description": "Unity Awake lifecycle method",
+    "body": [
+      "private void Awake()",
+      "{",
+      "\t$0",
+      "}"
+    ]
+  },
+
+  "Start": {
+    "prefix": "start",
+    "description": "Unity Start lifecycle method",
+    "body": [
+      "private void Start()",
+      "{",
+      "\t$0",
+      "}"
+    ]
+  },
+
+  "Update": {
+    "prefix": "update",
+    "description": "Unity Update lifecycle method",
+    "body": [
+      "private void Update()",
+      "{",
+      "\t$0",
+      "}"
+    ]
+  },
+
+  "LateUpdate": {
+    "prefix": "late",
+    "description": "Unity LateUpdate lifecycle method",
+    "body": [
+      "private void LateUpdate()",
+      "{",
+      "\t$0",
+      "}"
+    ]
+  },
+
+  "FixedUpdate": {
+    "prefix": "fixed",
+    "description": "Unity FixedUpdate lifecycle method",
+    "body": [
+      "private void FixedUpdate()",
+      "{",
+      "\t$0",
+      "}"
+    ]
+  },
+
+  "OnEnable": {
+    "prefix": "enable",
+    "description": "Unity OnEnable lifecycle method",
+    "body": [
+      "private void OnEnable()",
+      "{",
+      "\t$0",
+      "}"
+    ]
+  },
+
+  "OnDisable": {
+    "prefix": "disable",
+    "description": "Unity OnDisable lifecycle method",
+    "body": [
+      "private void OnDisable()",
+      "{",
+      "\t$0",
+      "}"
+    ]
+  },
+
+  "OnDestroy": {
+    "prefix": "destroy",
+    "description": "Unity OnDestroy lifecycle method",
+    "body": [
+      "private void OnDestroy()",
+      "{",
+      "\t$0",
+      "}"
+    ]
+  },
+
+  "OnTriggerEnter": {
+    "prefix": "trig-enter",
+    "description": "Unity OnTriggerEnter 3D",
+    "body": [
+      "private void OnTriggerEnter(Collider other)",
+      "{",
+      "\t$0",
+      "}"
+    ]
+  },
+
+  "OnTriggerExit": {
+    "prefix": "trig-exit",
+    "description": "Unity OnTriggerExit 3D",
+    "body": [
+      "private void OnTriggerExit(Collider other)",
+      "{",
+      "\t$0",
+      "}"
+    ]
+  },
+
+  "OnTriggerStay": {
+    "prefix": "trig-stay",
+    "description": "Unity OnTriggerStay 3D",
+    "body": [
+      "private void OnTriggerStay(Collider other)",
+      "{",
+      "\t$0",
+      "}"
+    ]
+  },
+
+  "OnCollisionEnter": {
+    "prefix": "coll-enter",
+    "description": "Unity OnCollisionEnter 3D",
+    "body": [
+      "private void OnCollisionEnter(Collision collision)",
+      "{",
+      "\t$0",
+      "}"
+    ]
+  },
+
+  "OnCollisionExit": {
+    "prefix": "coll-exit",
+    "description": "Unity OnCollisionExit 3D",
+    "body": [
+      "private void OnCollisionExit(Collision collision)",
+      "{",
+      "\t$0",
+      "}"
+    ]
+  },
+
+  "OnCollisionStay": {
+    "prefix": "coll-stay",
+    "description": "Unity OnCollisionStay 3D",
+    "body": [
+      "private void OnCollisionStay(Collision collision)",
+      "{",
+      "\t$0",
+      "}"
+    ]
+  },
+
+  "OnTriggerEnter2D": {
+    "prefix": "trig-enter-2d",
+    "description": "Unity OnTriggerEnter2D",
+    "body": [
+      "private void OnTriggerEnter2D(Collider2D other)",
+      "{",
+      "\t$0",
+      "}"
+    ]
+  },
+
+  "OnTriggerExit2D": {
+    "prefix": "trig-exit-2d",
+    "description": "Unity OnTriggerExit2D",
+    "body": [
+      "private void OnTriggerExit2D(Collider2D other)",
+      "{",
+      "\t$0",
+      "}"
+    ]
+  },
+
+  "OnTriggerStay2D": {
+    "prefix": "trig-stay-2d",
+    "description": "Unity OnTriggerStay2D",
+    "body": [
+      "private void OnTriggerStay2D(Collider2D other)",
+      "{",
+      "\t$0",
+      "}"
+    ]
+  },
+
+  "OnCollisionEnter2D": {
+    "prefix": "coll-enter-2d",
+    "description": "Unity OnCollisionEnter2D",
+    "body": [
+      "private void OnCollisionEnter2D(Collision2D collision)",
+      "{",
+      "\t$0",
+      "}"
+    ]
+  },
+
+  "OnCollisionExit2D": {
+    "prefix": "coll-exit-2d",
+    "description": "Unity OnCollisionExit2D",
+    "body": [
+      "private void OnCollisionExit2D(Collision2D collision)",
+      "{",
+      "\t$0",
+      "}"
+    ]
+  },
+
+  "OnCollisionStay2D": {
+    "prefix": "coll-stay-2d",
+    "description": "Unity OnCollisionStay2D",
+    "body": [
+      "private void OnCollisionStay2D(Collision2D collision)",
+      "{",
+      "\t$0",
+      "}"
+    ]
+  },
+
+  "SerializeField": {
+    "prefix": "sf",
+    "description": "Unity SerializeField field",
+    "body": [
+      "[SerializeField] private $1 $2"
+    ]
+  },
+
+  "Serializable": {
+    "prefix": "ser",
+    "description": "C# Serializable class",
+    "body": [
+      "[System.Serializable]",
+      "public class ${1:ClassName}",
+      "{",
+      "\t$0",
+      "}"
+    ]
+  }
+}
