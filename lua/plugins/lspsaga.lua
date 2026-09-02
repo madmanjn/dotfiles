@@ -34,7 +34,7 @@ return {
     -- Go to Type Definition
     keymap.set(
       'n',
-      'gd',
+      '<A-d>',
       vim.lsp.buf.type_definition,
       { silent = true, desc = 'Go to Type Definition' }
     )
@@ -42,7 +42,7 @@ return {
     -- Go to Implementation
     keymap.set(
       'n',
-      'gi',
+      '<A-i>',
       '<cmd>Lspsaga finder imp<cr>',
       { silent = true, desc = 'Go to Implementation' }
     )
@@ -50,7 +50,7 @@ return {
     -- Find References
     keymap.set(
       'n',
-      'gr',
+      '<A-r>',
       telescope.lsp_references,
       { silent = true, desc = 'Find References' }
     )
@@ -73,56 +73,13 @@ return {
       { silent = true, desc = 'Code Action' }
     )
 
-    -- ========================================
-    -- Diagnostics
-    -- ========================================
-
     keymap.set(
       'n',
-      '[d',
-      '<cmd>Lspsaga diagnostic_jump_prev<cr>',
-      { silent = true, desc = 'Previous Diagnostic' }
-    )
-
-    keymap.set(
-      'n',
-      ']d',
-      '<cmd>Lspsaga diagnostic_jump_next<cr>',
-      { silent = true, desc = 'Next Diagnostic' }
-    )
-
-    keymap.set(
-      'n',
-      '<leader>d',
-      '<cmd>Lspsaga show_line_diagnostics<cr>',
-      { silent = true, desc = 'Show Line Diagnostics' }
-    )
-
-    -- ========================================
-    -- Outline
-    -- ========================================
-
-    keymap.set(
-      'n',
-      '<leader>o',
+      '<A-o>',
       '<cmd>Lspsaga outline<cr>',
       { silent = true, desc = 'LSP Outline' }
     )
 
-    -- ========================================
-    -- Inlay Hint
-    -- ========================================
-
-    keymap.set(
-      'n',
-      '<leader>ih',
-      function()
-        vim.lsp.inlay_hint.enable(
-          not vim.lsp.inlay_hint.is_enabled()
-        )
-      end,
-      { silent = true, desc = 'Toggle Inlay Hint' }
-    )
 
     -- ========================================
     -- Diagnostic Signs

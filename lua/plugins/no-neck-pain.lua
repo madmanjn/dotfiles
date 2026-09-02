@@ -3,7 +3,7 @@ return {
 
   keys = {
     {
-      '<A-f>',
+      '<A-z>',
       '<cmd>NoNeckPain<cr>',
       desc = 'Center Code',
     },

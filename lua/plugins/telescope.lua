@@ -13,7 +13,7 @@ return {
     -- Find C# files
     -- ========================================
 
-    vim.keymap.set('n', '<leader>ff', function()
+    vim.keymap.set('n', '<A-f>', function()
       builtin.find_files {
         find_command = {
           'rg',
@@ -41,7 +41,7 @@ return {
     -- Grep C# files
     -- ========================================
 
-    vim.keymap.set('n', '<leader>fg', function()
+    vim.keymap.set('n', '<A-g>', function()
       builtin.live_grep {
         glob_pattern = '*.cs',
       }
@@ -51,19 +51,11 @@ return {
     -- Telescope Pickers
     -- ========================================
 
-    vim.keymap.set('n', '<leader>fb', builtin.buffers, {
-      desc = 'Find Buffers',
-    })
-
-    vim.keymap.set('n', '<leader>fs', builtin.lsp_document_symbols, {
+    vim.keymap.set('n', '<A-s>', builtin.lsp_document_symbols, {
       desc = 'Find Document Symbols',
     })
 
-    vim.keymap.set('n', '<leader>fw', builtin.lsp_dynamic_workspace_symbols, {
-      desc = 'Find Workspace Symbols',
-    })
-
-    vim.keymap.set('n', '<leader>fd', function()
+    vim.keymap.set('n', '<A-n>', function()
       builtin.diagnostics {
         scope = 'workspace',
         severity = {
