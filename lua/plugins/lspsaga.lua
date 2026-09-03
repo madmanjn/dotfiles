@@ -31,13 +31,31 @@ return {
       { silent = true, desc = 'Hover Documentation' }
     )
 
-    -- Go to Type Definition
-    keymap.set(
-      'n',
-      '<A-d>',
-      vim.lsp.buf.type_definition,
-      { silent = true, desc = 'Go to Type Definition' }
-    )
+    -- Smart Type Definition / Implementation
+    keymap.set('n', '<A-d>', function()
+      local params = vim.lsp.util.make_position_params()
+
+      vim.lsp.buf_request(
+        0,
+        'textDocument/typeDefinition',
+        params,
+        function(err, result)
+          if err then
+            vim.cmd('Lspsaga finder imp')
+            return
+          end
+
+          if result and #result > 0 then
+            vim.lsp.buf.type_definition()
+          else
+            vim.cmd('Lspsaga finder imp')
+          end
+        end
+      )
+    end, {
+      silent = true,
+      desc = 'Type Definition / Implementation',
+    })
 
     -- Go to Implementation
     keymap.set(
@@ -79,7 +97,6 @@ return {
       '<cmd>Lspsaga outline<cr>',
       { silent = true, desc = 'LSP Outline' }
     )
-
 
     -- ========================================
     -- Diagnostic Signs

@@ -1,5 +1,5 @@
 if vim.g.neovide then
-  vim.o.guifont = 'JetBrainsMono Nerd Font:h14'
+  vim.o.guifont = 'JetBrainsMonoNL Nerd Font:h14'
 	vim.g.neovide_position_animation_length = 0
 	vim.g.neovide_cursor_animation_length = 0
   vim.g.neovide_scale_factor = 1
@@ -20,7 +20,7 @@ if vim.g.neovide then
   end)
   
 
-  vim.keymap.set('n', '<C-s>', '<cmd>w<CR>')
+  vim.keymap.set('n', '<C-s>', '<cmd>wa<CR>')
 
 
   vim.keymap.set('c', '<C-v>', '<C-R>+')

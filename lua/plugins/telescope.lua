@@ -54,6 +54,10 @@ return {
     vim.keymap.set('n', '<A-s>', builtin.lsp_document_symbols, {
       desc = 'Find Document Symbols',
     })
+    
+    vim.keymap.set('n', '<A-b>', builtin.buffers, {
+      desc = 'Find Buffers',
+    })
 
     vim.keymap.set('n', '<A-n>', function()
       builtin.diagnostics {
